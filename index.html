@@ -10,384 +10,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Chuku&family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Squada+One&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        :root {
-            --bg-left: #ffffff;
-            --bg-right: #1e1b4b;
-            --teal-dark: #0f766e;
-            --teal-light: #14b8a6;
-            --card-green: #4ade80;
-            --card-yellow: #facc15;
-            --card-blue: #2dd4bf;
-            --text-dark: #0f172a;
-            --text-light: #f1f5f9;
-        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Share Tech Mono', monospace;
-        }
-
-        body {
-            background-color: var(--bg-right);
-            overflow-x: hidden;
-        }
-
-        /* --- NAVIGATION BAR --- */
-        header {
-            background-color: var(--bg-left);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            border-bottom: 2px solid #ddd;
-        }
-
-        .logo {
-            font-family: 'Squada One', sans-serif;
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-
-        nav ul li a:hover {
-            color: var(--teal-light);
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 15px;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        /* --- MAIN LAYOUT SPLIT --- */
-        .main-container {
-            display: flex;
-            min-height: calc(100vh - 80px);
-            width: 100%;
-        }
-
-        /* --- LEFT COLUMN --- */
-        .left-col {
-            background-color: var(--bg-left);
-            width: 45%;
-            padding: 60px 40px;
-            color: var(--text-dark);
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .hero-section h1 {
-            font-family: 'Squada One', sans-serif;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .hero-section p {
-            font-size: 1.3rem;
-            color: #475569;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        /* 3D Retro Button Effect */
-        .btn-explore {
-            background-color: var(--teal-dark);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0px 5px 0px #042f2e;
-            transition: all 0.1s ease;
-        }
-
-        .btn-explore:active {
-            transform: translateY(5px);
-            box-shadow: 0px 0px 0px #042f2e;
-        }
-
-        /* Sidebar block inside left panel */
-        .sidebar-block {
-            background-color: #064e3b;
-            color: var(--text-light);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .sidebar-section {
-            margin-bottom: 25px;
-        }
-
-        .sidebar-section h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #a7f3d0;
-            border-bottom: 1px solid #047857;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-size: 1rem;
-            text-transform: uppercase;
-        }
-
-        .sidebar-section ul {
-            list-style: none;
-        }
-
-        .sidebar-section ul li {
-            padding: 4px 0;
-            font-size: 1.1rem;
-        }
-
-        /* --- RIGHT COLUMN (Gaming Hub) --- */
-        .right-col {
-            background-color: var(--bg-right);
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            width: 55%;
-            padding: 60px 40px;
-            color: var(--text-light);
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            position: relative;
-        }
-
-        /* --- CARDS & COMPONENT ARCHITECTURE --- */
-        .project-card {
-            background: rgba(255, 255, 255, 0.07);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            gap: 20px;
-            backdrop-filter: blur(10px);
-            position: relative;
-            align-items: center;
-        }
-
-        .card-accent-green {
-            border-left: 8px solid var(--card-green);
-        }
-
-        .card-accent-yellow {
-            border-left: 8px solid var(--card-yellow);
-        }
-
-        .project-thumb {
-            width: 100px;
-            height: 100px;
-            background: #2e2a72;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            /* Placeholder for pixel art icons */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-info {
-            flex-grow: 1;
-        }
-
-        .project-info h2 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            color: var(--text-light);
-        }
-
-        .project-info h2.green-t {
-            color: var(--card-green);
-        }
-
-        .project-info h2.yellow-t {
-            color: var(--card-yellow);
-        }
-
-        .genre-tag {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .project-info ul {
-            list-style-type: square;
-            margin-left: 18px;
-            font-size: 0.95rem;
-            color: #cbd5e1;
-        }
-
-        /* Interaction Buttons Container */
-        .card-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .btn-retro {
-            background: #334155;
-            color: white;
-            border: 1px solid #475569;
-            padding: 8px 16px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            border-radius: 4px;
-        }
-
-        .btn-retro:hover {
-            background: var(--teal-light);
-            color: var(--text-dark);
-            border-color: var(--teal-light);
-        }
-
-        /* --- FOOTER CARD AREA --- */
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: auto;
-        }
-
-        .about-box,
-        .contact-box {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .about-box h3,
-        .contact-box h3 {
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        .about-content {
-            display: flex;
-            gap: 15px;
-        }
-
-        .avatar-placeholder {
-            width: 60px;
-            height: 60px;
-            background: #475569;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .about-text {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            line-height: 1.4;
-        }
-
-        /* Form styling */
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-
-        .btn-submit {
-            background: white;
-            color: black;
-            border: none;
-            padding: 6px 15px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .btn-submit:hover {
-            background: var(--card-yellow);
-        }
-
-        footer {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: #64748b;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 15px;
-        }
-
-        footer a {
-            color: #94a3b8;
-            text-decoration: none;
-            margin-left: 15px;
-        }
-
-        footer a:hover {
-            color: white;
-        }
-
-        /* --- RESPONSIVE WORK --- */
-        @media (max-width: 968px) {
-            .main-container {
-                flex-direction: column;
-            }
-
-            .left-col,
-            .right-col {
-                width: 100%;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
     <header>
-        <div class="logo">YOUR NAME</div>
+        <div class="logo">Hayley Slater</div>
         <nav>
             <ul>
                 <li><a href="#">Games/Projects</a></li>
@@ -406,14 +37,14 @@
 
         <div class="left-col">
             <div class="hero-section">
-                <h1>PORTFOLIO OF [YOUR NAME]</h1>
-                <p>[YOUR TITLE/TAGLINE - e.g., CREATIVE DEVELOPER & PIXEL ARTIST]</p>
+                <h1>PORTFOLIO OF HAYLEY SLATER</h1>
+                <p>CREATIVE DEVELOPER, GRAPHIC DESIGNER, DIGITAL ARTIST & GAMING ENTHUSIAST</p>
                 <button class="btn-explore">Explore Projects</button>
             </div>
 
             <div class="sidebar-block">
                 <div class="sidebar-section">
-                    <h3>Latest Tweets/Updates</h3>
+                    <h3>INFOs</h3>
                     <ul>
                         <li>• HOME</li>
                         <li>• UNITY</li>
@@ -426,10 +57,10 @@
                 <div class="sidebar-section">
                     <h3>Skills</h3>
                     <ul>
-                        <li>• UNITY</li>
-                        <li>• PIXEL ART</li>
+                        <li>• HTML</li>
+                        <li>• CSS</li>
+                        <li>• JavaScript</li>
                         <li>• C#</li>
-                        <li>• WEB DESIGN</li>
                     </ul>
                 </div>
 
@@ -442,9 +73,85 @@
                     </ul>
                 </div>
             </div>
+
+            <br>
+            <div class="sidebar-block">
+                <div class="sidebar-section">
+                    <h3>Latest Tweets/Updates</h3>
+                    <ul>
+                        <li>• HOME</li>
+                        <li>• GALLERY</li>
+                        <li>• WEB DESIGN</li>
+                        <li>• PERSONAL INFO</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Skills</h3>
+                    <ul>
+                        <li>• HTML</li>
+                        <li>• CSS</li>
+                        <li>• JavaScript</li>
+                        <li>• C#</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
+
+
         <div class="right-col">
+
+            <div class="project-card card-accent-red">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="red-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-orange">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="orange-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-yellow">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="yellow-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
 
             <div class="project-card card-accent-green">
                 <div class="project-thumb">⭐</div>
@@ -463,11 +170,130 @@
                 </div>
             </div>
 
-            <div class="project-card card-accent-yellow">
+            <div class="project-card card-accent-blue">
                 <div class="project-thumb">📟</div>
                 <div class="project-info">
-                    <h2 class="yellow-t">[PROJECT 2 TITLE]</h2>
+                    <h2 class="blue-t">[PROJECT 2 TITLE]</h2>
                     <span class="genre-tag">Genre/Type, Year</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-purple">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="purple-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-red">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="red-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-orange">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="orange-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-yellow">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="yellow-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-green">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="green-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-blue">
+                <div class="project-thumb">📟</div>
+                <div class="project-info">
+                    <h2 class="blue-t">[PROJECT 2 TITLE]</h2>
+                    <span class="genre-tag">Genre/Type, Year</span>
+                    <ul>
+                        <li>Description of key elements.</li>
+                        <li>Project goals.</li>
+                        <li>(e.g., Pixel Art World-Building)</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn-retro">▶ Play</button>
+                        <button class="btn-retro">View Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card card-accent-purple">
+                <div class="project-thumb">⭐</div>
+                <div class="project-info">
+                    <h2 class="purple-t"> Minecraft Flower Forest Hangman</h2>
+                    <span class="genre-tag">March Monthly Project , Junior Year, 2025</span>
                     <ul>
                         <li>Description of key elements.</li>
                         <li>Project goals.</li>
@@ -487,7 +313,7 @@
             </div>
 
             <footer>
-                <div>© 2026 [YOUR NAME]</div>
+                <div>© 2026 HAYLEY SLATER</div>
                 <div>
                     <a href="#">LINKS</a>
                     <a href="#">INSTAGRAMS</a>
@@ -496,6 +322,24 @@
             </footer>
 
         </div>
+    </div>
+
+    <div class="footer-grid">
+
+
+
+    </div>
+
+    <footer>
+        <div>© 2026 HAYLEY SLATER</div>
+        <div>
+            <a href="#">LINKS</a>
+            <a href="#">INSTAGRAMS</a>
+            <a href="#">SOCIAL MEDIA</a>
+        </div>
+    </footer>
+
+    </div>
     </div>
 
 </body>
