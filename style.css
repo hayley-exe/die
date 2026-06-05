@@ -3,21 +3,28 @@
   --bg-right: #1e1b4b;
   --teal-dark: #0f766e;
   --teal-light: #14b8a6;
-  --card-red: #ef233c;
-  --card-scarlet: #ef4444;
+  --card-dred: #c00030;
+  --card-red: #e61a32;
+  --card-bred: #ff0000;
+  --card-scarlet: #ff4343;
+  --card-fire: #f85e00;
   --card-orange: #f97316;
+  --card-golden: #f8961e;
   --card-honey: #ffd200;
   --card-yellow: #fff000;
+  --card-acid: #e2ff3f;
   --card-lime: #00ff6a;
   --card-green: #22c55e;
   --card-verde: #20aa63;
-  --card-cyan: #00fff9;
+  --card-cyan: #15ffeb;
+  --card-aqua: #00eeff;
   --card-sky: #00b8ff;
   --card-blue: #1e74ff;
-  --card-deep: #4900ff;
-  --card-indigo: #452974;
-  --card-purple: #6a1b8c;
-  --card-violet: #560f5f;
+  --card-cobalt: #4361ee;
+  --card-deep: #1f00cf;
+  --card-indigo: #001d9c;
+  --card-purple: #560bad;
+  --card-violet: #7209b7;
   --card-magenta: #8d0057;
   --card-dpink: #e00065;
   --card-hot: #ff0a74;
@@ -25,8 +32,6 @@
   --card-lpink: #ff758f;
   --text-dark: #f9f9f9;
   --text-light: white;
-  --bg-h:                                                                  
-;
 }
 
 * {
@@ -200,23 +205,86 @@ nav ul li a:hover {
   align-items: center;
 }
 
+.card-accent-dred {
+  border-left: 8px solid var(--card-dred);
+}
 .card-accent-red {
   border-left: 8px solid var(--card-red);
+}
+.card-accent-bred {
+  border-left: 8px solid var(--card-bred);
+}
+.card-accent-scarlet {
+  border-left: 8px solid var(--card-scarlet);
+}
+.card-accent-fire {
+  border-left: 8px solid var(--card-fire);
 }
 .card-accent-orange {
   border-left: 8px solid var(--card-orange);
 }
+.card-accent-golden {
+  border-left: 8px solid var(--card-golden);
+}
+.card-accent-honey {
+  border-left: 8px solid var(--card-honey);
+}
 .card-accent-yellow {
   border-left: 8px solid var(--card-yellow);
+}
+.card-accent-acid {
+  border-left: 8px solid var(--card-acid);
+}
+.card-accent-lime {
+  border-left: 8px solid var(--card-lime);
 }
 .card-accent-green {
   border-left: 8px solid var(--card-green);
 }
+.card-accent-verde {
+  border-left: 8px solid var(--card-verde);
+}
+.card-accent-cyan {
+  border-left: 8px solid var(--card-cyan);
+}
+.card-accent-aqua {
+  border-left: 8px solid var(--card-aqua);
+}
+.card-accent-sky {
+  border-left: 8px solid var(--card-sky);
+}
 .card-accent-blue {
   border-left: 8px solid var(--card-blue);
 }
+.card-accent-cobalt {
+  border-left: 8px solid var(--card-cobalt);
+}
+.card-accent-deep {
+  border-left: 8px solid var(--card-deep);
+}
+.card-accent-indigo {
+  border-left: 8px solid var(--card-indigo);
+}
 .card-accent-purple {
   border-left: 8px solid var(--card-purple);
+}
+.card-accent-violet {
+  border-left: 8px solid var(--card-violet);
+}
+.card-accent-magenta {
+  border-left: 8px solid var(--card-magenta);
+}
+.card-accent-dpink {
+  border-left: 8px solid var(--card-dpink);
+}
+.card-accent-hot {
+  border-left: 8px solid var(--card-hot);
+}
+.card-accent-pink {
+  border-left: 8px solid var(--card-pink);
+}
+.card-accent-lpink {
+  border-left: 8px solid var(--card-lpink);
 }
 
 .project-thumb {
@@ -242,23 +310,86 @@ nav ul li a:hover {
   color: var(--text-light);
 }
 
+.project-info h2.dred-t {
+  color: var(--card-dred);
+}
 .project-info h2.red-t {
   color: var(--card-red);
+}
+.project-info h2.bred-t {
+  color: var(--card-bred);
+}
+.project-info h2.scarlet-t {
+  color: var(--card-scarlet);
+}
+.project-info h2.fire-t {
+  color: var(--card-fire);
 }
 .project-info h2.orange-t {
   color: var(--card-orange);
 }
+.project-info h2.golden-t {
+  color: var(--card-golden);
+}
+.project-info h2.honey-t {
+  color: var(--card-honey);
+}
 .project-info h2.yellow-t {
   color: var(--card-yellow);
+}
+.project-info h2.acid-t {
+  color: var(--card-acid);
+}
+.project-info h2.lime-t {
+  color: var(--card-lime);
 }
 .project-info h2.green-t {
   color: var(--card-green);
 }
+.project-info h2.verde-t {
+  color: var(--card-verde);
+}
+.project-info h2.cyan-t {
+  color: var(--card-cyan);
+}
+.project-info h2.aqua-t {
+  color: var(--card-aqua);
+}
+.project-info h2.sky-t {
+  color: var(--card-sky);
+}
 .project-info h2.blue-t {
   color: var(--card-blue);
 }
+.project-info h2.cobalt-t {
+  color: var(--card-cobalt);
+}
+.project-info h2.deep-t {
+  color: var(--card-deep);
+}
+.project-info h2.indigo-t {
+  color: var(--card-indigo);
+}
 .project-info h2.purple-t {
   color: var(--card-purple);
+}
+.project-info h2.violet-t {
+  color: var(--card-violet);
+}
+.project-info h2.magenta-t {
+  color: var(--card-magenta);
+}
+.project-info h2.dpink-t {
+  color: var(--card-dpink);
+}
+.project-info h2.hot-t {
+  color: var(--card-hot);
+}
+.project-info h2.pink-t {
+  color: var(--card-pink);
+}
+.project-info h2.lpink-t {
+  color: var(--card-lpink);
 }
 
 .genre-tag {
