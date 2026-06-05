@@ -22,7 +22,6 @@
 
 body {
   background-color: var(--bg-right);
-  overflow-x: hidden;
 }
 
 /* --- NAVIGATION BAR --- */
@@ -74,6 +73,7 @@ nav ul li a:hover {
   display: flex;
   min-height: calc(100vh - 80px);
   width: 100%;
+  align-items: stretch;
 }
 
 /* --- LEFT COLUMN --- */
@@ -85,6 +85,8 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
 }
 
 .hero-section h1 {
@@ -165,8 +167,7 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: calc(100vh - 80px);
 }
 
@@ -186,26 +187,22 @@ nav ul li a:hover {
 .card-accent-red {
   border-left: 8px solid var(--card-red);
 }
-
 .card-accent-orange {
   border-left: 8px solid var(--card-orange);
 }
-
 .card-accent-yellow {
   border-left: 8px solid var(--card-yellow);
 }
-
 .card-accent-green {
   border-left: 8px solid var(--card-green);
 }
-
 .card-accent-blue {
   border-left: 8px solid var(--card-blue);
 }
-
 .card-accent-purple {
   border-left: 8px solid var(--card-purple);
 }
+
 .project-thumb {
   width: 100px;
   height: 100px;
@@ -215,7 +212,7 @@ nav ul li a:hover {
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  /* Placeholder for pixel art icons */
+  flex-shrink: 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -232,11 +229,9 @@ nav ul li a:hover {
 .project-info h2.red-t {
   color: var(--card-red);
 }
-
 .project-info h2.orange-t {
   color: var(--card-orange);
 }
-
 .project-info h2.yellow-t {
   color: var(--card-yellow);
 }
@@ -245,6 +240,9 @@ nav ul li a:hover {
 }
 .project-info h2.blue-t {
   color: var(--card-blue);
+}
+.project-info h2.purple-t {
+  color: var(--card-purple);
 }
 
 .genre-tag {
@@ -382,7 +380,7 @@ footer a:hover {
   color: white;
 }
 
-/* --- RESPONSIVE WORK --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 968px) {
   .main-container {
     flex-direction: column;
@@ -391,6 +389,7 @@ footer a:hover {
   .left-col,
   .right-col {
     width: 100%;
+    max-height: none;
   }
 
   .footer-grid {
