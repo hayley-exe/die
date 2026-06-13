@@ -596,7 +596,7 @@ footer a:hover {
 
 .pfp img {
   width: 60%; /* 60% smaller than full width */
-  height: auto; /* preserves aspect ratio */
+  height: 60; /* preserves aspect ratio */
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
