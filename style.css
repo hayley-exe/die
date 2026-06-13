@@ -429,10 +429,11 @@ nav ul li a:hover {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.9rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 5px;
   border-radius: 4px;
+  text-decoration: none;
 }
 
 .btn-retro:hover {
